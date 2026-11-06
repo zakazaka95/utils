@@ -49,7 +49,7 @@ func parse(value string) (string, unit, bool) {
 	value = strings.TrimSpace(value)
 	for i := range units {
 		if strings.HasSuffix(value, units[i].name) {
-			return strings.TrimSpace(strings.ReplaceAll(value, units[i].name, "")), units[i], true
+			return strings.TrimSpace(strings.TrimSuffix(value, units[i].name)), units[i], true
 		}
 	}
 	_, ok := new(big.Float).SetString(value)

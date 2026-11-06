@@ -69,6 +69,15 @@ func TestUnitErrors(t *testing.T) {
 	}, {
 		str: "ether",
 		err: `invalid value`,
+	}, {
+		str: "1etherether",
+		err: `invalid value`,
+	}, {
+		str: "1gweigwei",
+		err: `invalid value`,
+	}, {
+		str: "1weiwei",
+		err: `invalid value`,
 	}} {
 		t.Run(tc.str, func(t *testing.T) {
 			u, err := ParseUnit(tc.str)
